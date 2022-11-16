@@ -66,3 +66,4 @@ gem "omniauth-facebook", "~> 9.0"
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem "omniauth-linkedin-oauth2", "~> 1.0"
+gem 'pg'

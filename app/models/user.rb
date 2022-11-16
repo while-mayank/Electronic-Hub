@@ -13,11 +13,16 @@ class User < ApplicationRecord
     def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup
       if (login = conditions.delete(:login))
-        where(conditions.to_h).where(["lower(email)= :value OR (mobile)= :value", { :value => login.downcase }]).first
+        unless login.to_i == 0 
+          where(conditions.to_h).where(["lower(email)= :value OR (mobile)= :value", { :value => login.downcase } ]).first
+        else
+          where(conditions.to_h).where(["lower(email)= :value", { :value => login.downcase } ]).first
+        end
       elsif conditions.has_key?(:mobile) || conditions.has_key?(:email)
         where(conditions.to_h).first
       end
     end
+
     def self.from_omniauth(access_token)
       data = access_token.info
       user = User.find_by(email: data['email'])
@@ -28,7 +33,6 @@ class User < ApplicationRecord
              password: Devise.friendly_token[0,20]
           )
       end
-      debugger
       user.provider = access_token.uid
       user.uid = access_token.provider
       user.save
