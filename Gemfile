@@ -60,3 +60,8 @@ gem "devise", "~> 4.8"
 gem 'net-smtp', require: false
 gem 'net-imap', require: false
 gem 'net-pop', require: false
+
+gem 'omniauth'
+gem "omniauth-facebook", "~> 9.0"
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"

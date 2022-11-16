@@ -9,11 +9,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-
-  <div class="field">
     <%= f.label :mobile %><br />
     <%= f.text_field :mobile %>
   </div>
@@ -38,3 +33,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<%#= link_to "Sign in with Google", user_google_auth2_omniauth_authorize_path, method: :post %>
