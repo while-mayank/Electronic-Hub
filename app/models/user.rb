@@ -30,7 +30,8 @@ class User < ApplicationRecord
       unless user
           user = User.create(
             email: data['email'],
-             password: Devise.friendly_token[0,20]
+            name: data['name'],
+            password: Devise.friendly_token[0,20]
           )
       end
       user.provider = access_token.uid
