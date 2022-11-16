@@ -273,7 +273,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :facebook, '883858446125927', '158dfd399232434b244b5846da1931a2', callback_url: "http://localhost:3000/users/auth/facebook/callback"
   config.omniauth :google_oauth2, '108341538377-d1pq5jdtjnprabpavb8cqvqqnnki6ct2.apps.googleusercontent.com', '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'
-
+  config.omniauth :linkedin, client_id: '86vt28n587qtjj', client_secret: 'kG5nKOiduJhjMIyZ', :scope => 'r_liteprofile'
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
