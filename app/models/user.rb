@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+
+
+  has_one :profile, dependent: :destroy
+
+  after_create :initiate_profile
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   attr_accessor :login
@@ -9,7 +14,10 @@ class User < ApplicationRecord
      @login || self.email || self.mobile
   end
   
-  
+  def initiate_profile
+    self.create_profile(name: $name)
+  end
+
     def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup
       if (login = conditions.delete(:login))
@@ -28,9 +36,9 @@ class User < ApplicationRecord
       user = User.find_by(email: data['email'])
 
       unless user
+        $name = data['name']
           user = User.create(
             email: data['email'],
-            name: data['name'],
             password: Devise.friendly_token[0,20]
           )
       end
