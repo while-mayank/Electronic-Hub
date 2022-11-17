@@ -1,9 +1,8 @@
 class User < ApplicationRecord
 
-
   has_one :profile, dependent: :destroy
 
-  after_create :initiate_profile
+  after_create :initiate_profile, :grab_image
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   attr_accessor :login
@@ -16,6 +15,11 @@ class User < ApplicationRecord
   
   def initiate_profile
     self.create_profile(name: $name)
+  end
+
+  def grab_image
+    downloaded_image = URI.parse($image).open
+    self.profile.avatar.attach(io: downloaded_image, filename: "#{self.profile.id.to_s + self.profile.name}.jpg")
   end
 
     def self.find_for_database_authentication(warden_conditions)
@@ -37,6 +41,7 @@ class User < ApplicationRecord
 
       unless user
         $name = data['name']
+        $image = data['image']
           user = User.create(
             email: data['email'],
             password: Devise.friendly_token[0,20]
