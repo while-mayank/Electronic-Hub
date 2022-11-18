@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
+  has_many :products, dependent: :destroy
 
   after_create :initiate_profile, :grab_image
   # Include default devise modules. Others available are:

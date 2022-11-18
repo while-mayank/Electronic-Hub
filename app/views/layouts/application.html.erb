@@ -11,9 +11,19 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice.present?%>
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+      <p class="notice"><%= notice %></p>
+    </div>
+    <% end %>
+
+    <% if alert.present?%>
+      <div class="alert alert-warning d-flex align-items-center" role="alert">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
     <%= render partial: 'common/header'%>
     <%= yield %>
+    <%= render partial: 'common/footer'%>
   </body>
 </html>
