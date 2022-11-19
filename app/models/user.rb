@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-
+  require 'open-uri'
   has_one :profile, dependent: :destroy
   has_many :products, dependent: :destroy
 
@@ -50,8 +50,8 @@ class User < ApplicationRecord
             password: Devise.friendly_token[0,20]
           )
       end
-      user.provider = access_token.uid
-      user.uid = access_token.provider
+      user.provider = access_token.provider
+      user.uid = access_token.uid
       user.save
       user
     end
