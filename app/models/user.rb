@@ -3,9 +3,9 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :products, dependent: :destroy
 
-  after_create :initiate_profile, :grab_image
+   after_create :initiate_profile, :grab_image
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  #:confirmable ,:lockable, :timeoutable, :trackable 
   attr_accessor :login
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :omniauthable ,omniauth_providers: [:facebook, :google_oauth2, :linkedin], authentication_keys: [:login]
@@ -15,12 +15,14 @@ class User < ApplicationRecord
   end
   
   def initiate_profile
-    self.create_profile(name: $name)
+    self.create_profile(name: $name || "")
   end
 
   def grab_image
-    downloaded_image = URI.parse($image).open
-    self.profile.avatar.attach(io: downloaded_image, filename: "#{self.profile.id.to_s + self.profile.name}.jpg")
+    if $image.present?
+      downloaded_image = URI.parse($image).open
+      self.profile.avatar.attach(io: downloaded_image, filename: "#{self.profile.id.to_s + self.profile.name}.jpg")
+    end
   end
 
     def self.find_for_database_authentication(warden_conditions)
