@@ -1,0 +1,22 @@
+<div>
+  <% if @product.images.attached?  %>
+    <% @product.images.each do |image| %>
+      <div class="col align-self-start">
+         <%= image_tag image, width: "300px", height: "210px"%>
+      </div>
+    <% end %> 
+  <% else %>
+    <p>Please insert images</p>
+  <% end %> 
+</div>
+<div>
+  <p> <em> Seller: <%= @product.user.profile.name %> </em></p>
+  <p>Company: <%= @product.brand%> </p>
+  <p>Model: <%= @product.model %></p>
+  <p>Price: <%= @product.price %></p>
+</div>
+
+
+<% if current_user == @product.user %>
+    <%= link_to "Edit Product", edit_product_path(@product)%>
+<% end %>

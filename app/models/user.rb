@@ -8,7 +8,7 @@ class User < ApplicationRecord
   #:confirmable ,:lockable, :timeoutable, :trackable 
   attr_accessor :login
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :omniauthable ,omniauth_providers: [:facebook, :google_oauth2, :linkedin], authentication_keys: [:login]
+  devise :database_authenticatable, :validatable, :registerable, :recoverable, :rememberable, :omniauthable ,omniauth_providers: [:facebook, :google_oauth2, :linkedin], authentication_keys: [:login]
 
   def login
      @login || self.email || self.mobile

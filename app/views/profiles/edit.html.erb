@@ -1,0 +1,11 @@
+<%=  form_for @profile do |p| %>
+<%= p.label :avatar%><br>
+<%= p.file_field :avatar%><br>
+<%= p.label :name %><br>
+<%= p.text_field :name%><br>
+<%= p.label :age %><br>
+<%= p.text_field :age%><br>
+<%= p.label :gender %><br>
+<%= p.text_field :gender %><br>
+<%=  p.submit %>
+<% end %>
