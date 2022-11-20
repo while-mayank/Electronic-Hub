@@ -5,10 +5,10 @@ class User < ApplicationRecord
 
    after_create :initiate_profile, :grab_image
   # Include default devise modules. Others available are:
-  # :lockable, :timeoutable, :trackable 
+  # :timeoutable, :trackable 
   attr_accessor :login
 
-  devise :database_authenticatable, :validatable, :confirmable, :registerable, :recoverable, :rememberable, :omniauthable ,omniauth_providers: [:facebook, :google_oauth2, :linkedin], authentication_keys: [:login]
+  devise :database_authenticatable, :validatable, :confirmable,  :lockable, :registerable, :recoverable, :rememberable, :omniauthable ,omniauth_providers: [:facebook, :google_oauth2, :linkedin], authentication_keys: [:login]
 
   def login
      @login || self.email || self.mobile
@@ -19,6 +19,7 @@ class User < ApplicationRecord
   end
 
   def grab_image
+    debugger
     if $image.present?
       downloaded_image = URI.parse($image).open
       self.profile.avatar.attach(io: downloaded_image, filename: "#{self.profile.id.to_s + self.profile.name}.jpg")
