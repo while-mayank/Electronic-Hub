@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :product_variable, only: %i[show edit destroy] 
+  before_action :product_variable, only: %i[show edit update destroy] 
   
   def index
     @products = Product.all
@@ -23,12 +23,15 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product = Product.update(product_params)
+    if Product.find(params[:id]).update(product_params)
       redirect_to product_url(@product)
     end
   end
 
   def destroy
+    if @product.destroy
+      redirect_to products_url
+    end
   end
 
   private

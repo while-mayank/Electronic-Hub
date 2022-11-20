@@ -6,12 +6,6 @@ body {
     display: none;
   }
     
-// footer {
-//    position: absolute;
-//    left: 0;
-//    bottom: 0;
-//    width: 100%;
-//    background-color: red;
-//    color: white;
-//    text-align: center;
-// }
+.card:hover {
+  transform: scale(1.01);
+}

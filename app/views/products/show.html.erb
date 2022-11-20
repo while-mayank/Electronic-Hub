@@ -19,4 +19,5 @@
 
 <% if current_user == @product.user %>
     <%= link_to "Edit Product", edit_product_path(@product)%>
+    <%= link_to "Delete Product", product_path(@product), method: :delete%>
 <% end %>

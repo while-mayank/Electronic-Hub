@@ -10,29 +10,24 @@
     </ul>
   </div>
 <% end %> 
+
 <%= f.label :brand%><br>
 <%= f.text_field :brand%><br>
+
 <%= f.label :model%><br>
 <%= f.text_field :model%><br>
-<%= f.label :category %><br>
-<%= f.select :category, ["Kitchen", "Home", "Mobile"], id: "independent"%><br>
-<%= f.label :sub_category%><br>
-<%= f.text_field :sub_category%><br>
-<%= f.label :price%><br>
-<%= f.text_field :price%><br>
-<%= f.label :images%><br>
-<%= f.file_field :images, multiple: true %><br>
-<%= f.submit %>
-<% end %>
 
-<select id="independent">
+<%= f.label :category %><br>
+<select id="independent" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
   <option value="A"> Kitchen </option>
   <option value="B"> Home </option>
   <option value="C"> Mobile </option>
 </select>
 
-<select id="dependent">
+<%= f.label :sub_category%><br>
+ <select id="dependent" class="form-select form-select-sm" aria-label=".form-select-sm example">
   <option value="A">Electric Chimney</option>
+  <option value="A">Electric Coffe Grinder</option>
   <option value="A">Mixer</option>
   <option value="A">Refrigrator</option>
   <option value="A">Microwave</option>
@@ -50,4 +45,14 @@
   <option value="C">OTG</option>
   <option value="C">Holder</option>
   <option value="C">Tri Pod</option>
+  <option value="C">Power bank</option>
 </select>
+
+<%= f.label :price%><br>
+<%= f.text_field :price%><br>
+
+<%= f.label :images%><br>
+<%= f.file_field :images, multiple: true %><br>
+
+<%= f.submit %>
+<% end %>

@@ -1,20 +1,18 @@
-
-
-<div class="container text-center" style="margin-right: 100px; margin-left: 100px;">
-  <div class="row row-cols-4" style="width: 1600px;">
+<div class="container text-center" style="">
+  <div class="row row-cols-4" style="">
     <% @products.each do |p|%>
-      <div class="col" style="margin-bottom: 0.7rem; margin-top: 0.7rem;">
-        <div class="card text-bg-light mb-3" style="width: 290px;margin-top: 16px;margin-left: 42px;margin-right: 0rem;">
+      <div class="col" style="">
+        <div class="card text-bg-light mb-3 border-0 mask" style="">
           <%= link_to(p)  do %>
           <% if p.images.attached?  %>
-            <div class="col align-self-start" style="width: 18rem;">
-              <%= image_tag p.images.first, width: "300px", height: "210px", class:"card-img-top"%>
+            <div class="col align-self-start">
+              <%= image_tag p.images.first,  class:"card-img-top"%>
             </div>
           <% else %>
             <p>Please insert images</p>
           <% end %>
           <% end %>
-          <div class="card-body">
+          <div class="card-body" style = "background-color: white;" >
             <p class="card-title">Brand: <%= p.brand%></p>
             <p class="card-text">Model: <%= p.model%> </p>
             <p class="card-text">Price: <%= p.price%> </p> 
