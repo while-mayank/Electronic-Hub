@@ -5,10 +5,10 @@ class User < ApplicationRecord
 
    after_create :initiate_profile, :grab_image
   # Include default devise modules. Others available are:
-  #:confirmable ,:lockable, :timeoutable, :trackable 
+  # :lockable, :timeoutable, :trackable 
   attr_accessor :login
 
-  devise :database_authenticatable, :validatable, :registerable, :recoverable, :rememberable, :omniauthable ,omniauth_providers: [:facebook, :google_oauth2, :linkedin], authentication_keys: [:login]
+  devise :database_authenticatable, :validatable, :confirmable, :registerable, :recoverable, :rememberable, :omniauthable ,omniauth_providers: [:facebook, :google_oauth2, :linkedin], authentication_keys: [:login]
 
   def login
      @login || self.email || self.mobile

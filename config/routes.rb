@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
+
+  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks", confirmations: 'users/confirmations'}
+  root to: "homes#index"
   
-  get 'homes/index'
   resources :profiles
   resources :products
-  
-  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
-  root to: "homes#index"
 end

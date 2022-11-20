@@ -68,3 +68,4 @@ gem "omniauth-rails_csrf_protection"
 gem "omniauth-linkedin-oauth2", "~> 1.0"
 gem 'pg'
 gem "image_processing", ">= 1.2"
+gem "letter_opener", group: :development
