@@ -10,21 +10,33 @@
     </ul>
   </div>
 <% end %> 
-<%= f.label :brand%><br>
-<%= f.text_field :brand%><br>
 
-<%= f.label :model%><br>
-<%= f.text_field :model%><br>
+<div class="mb-3">
+  <%= f.label :brand, class: "form-label"%><br>
+</div>
+<div class="mb-3">
+  <%= f.text_field :brand, class: "form-control", id: "exampleFormControlInput1" %><br>
+</div>
+<div class="mb-3">
+  <%= f.label :model, class: "form-label" %><br>
+</div>
+<div class="mb-3">
+  <%= f.text_field :model, class: "form-control", id: "exampleFormControlInput1"%><br>
+</div>
+<div class="mb-3">
+  <%= f.label :category, class: "form-label" %>
+</div>
 
-<%= f.label :category %><br>
-<select id="independent" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+<select id="independent" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
   <option value="A"> Kitchen </option>
   <option value="B"> Home </option>
   <option value="C"> Mobile </option>
 </select>
 
-<%= f.label :sub_category%><br>
- <select id="dependent" class="form-select form-select-sm" aria-label=".form-select-sm example">
+<div class="mb-3">
+  <%= f.label :sub_category, class: "form-label", id: "exampleFormControlInput1" %>
+</div>
+ <select id="dependent" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
   <option value="A">Electric Chimney</option>
   <option value="A">Electric Coffe Grinder</option>
   <option value="A">Mixer</option>
@@ -47,9 +59,18 @@
   <option value="C">Power bank</option>
 </select>
 
-<%= f.label :price%><br>
-<%= f.text_field :price%><br>
-<%= f.label :images%><br>
-<%= f.file_field :images, multiple: true %><br>
-<%= f.submit %>
+<div class="mb-3">
+  <%= f.label :price, class: "form-label"%>
+</div>
+<div class="mb-3">
+  <%= f.text_field :price, class: "form-control", id: "exampleFormControlInput1"%>
+</div>
+<div class="mb-3">
+  <%= f.label :images, class: "form-label"%>
+</div>
+<div class="mb-3">
+  <%= f.file_field :images, multiple: true, class:"form-control form-control-lg", id: "exampleFormControlInput1" %>
+</div>
+
+<%= f.submit "Update Product", class: "btn btn-primary" %>
 <% end %>
