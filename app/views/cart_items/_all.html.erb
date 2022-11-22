@@ -4,10 +4,12 @@
         <%= image_tag ci.product.images.first, style: "width: 100px;height: 100px;" %>
         <%= ci.product.model %><br>
         <div class="btn-group" role="group" aria-label="Basic outlined example">
-        <%= link_to "+", increment_cart_item_path(ci), class:"btn btn-outline-primary", remote: true%>
         <%= link_to "-", decrement_cart_item_path(ci), class:"btn btn-outline-primary", remote: true%>
+        <%= link_to "+", increment_cart_item_path(ci), class:"btn btn-outline-primary", remote: true%>
         </div>
         <div id = "QuantityStatus<%=ci.id%>">
+        Quantity: <%= ci.quantity %><br>
+        Price: <%= ci.product.price * ci.quantity%><br>
         </div>
         <hr>
     <% end %>
@@ -15,9 +17,5 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
+    <%= link_to "Proceed To Buy", class: "btn btn-primary"%>
 </div>
-
-<script>
-
-</script>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do
       get 'increment'
       get 'decrement'
+      post 'register'
     end
   end
 end

@@ -22,9 +22,13 @@
     <%= link_to "Delete Product", product_path(@product), method: :delete%>
 <% end %>
 
-
-<%=  link_to "Add to Cart", cart_items_path, class: "btn btn-primary", data: {bs_target: "#CartItems", bs_toggle: "modal", remote: true} %>
-
+<% if user_signed_in? && current_user.cart.cart_items.find_by(product_id: @product.id).present?%>
+  <%=  link_to "Add to Cart1", cart_items_path, class: "btn btn-primary", data: {bs_target: "#CartItems", bs_toggle: "modal", remote: true}%>
+<% elsif user_signed_in? %>
+ <%= link_to "Add to Cart2", register_cart_item_path(id: @product), class: "btn btn-primary", data: {bs_target: "#CartItems", bs_toggle: "modal", remote:true}, method: :post%>
+<% else %>
+  <%=  link_to "Add to Cart3", cart_items_path, class: "btn btn-primary" %>
+<% end %>
 
 <div class="modal fade" id="CartItems" tabindex="-1" aria-labelledby="CartItemsLabel" aria-hidden="true">
   <div class="modal-dialog" style="

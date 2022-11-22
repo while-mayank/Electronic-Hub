@@ -1,4 +1,5 @@
 class CartItemsController < ApplicationController
+    before_action :authenticate_user!
     before_action :cart_variable, only: %i[edit update destroy increment decrement]
 
     def index
@@ -9,8 +10,9 @@ class CartItemsController < ApplicationController
         @cart_item = CartItem.new
     end 
 
-    def create
-        @cart_item = current_user.cart.cart_items.create(cart_items_params)
+    def register
+        @cart_items = CartItem.all
+        @cart_item = current_user.cart.cart_items.create(product_id: params[:id])
         respond_to do |format|
             if @cart_item.save
                 format.js
@@ -24,7 +26,7 @@ class CartItemsController < ApplicationController
     end
 
     def update
-        @cart_item.update(cart_items_params)
+        @cart_item.update()
         respond_to do |format|
             if @cart_item.update
                 format.js
@@ -66,10 +68,10 @@ class CartItemsController < ApplicationController
 
     private
 
-    def cart_items_params
-        debugger
-        params.require(:cart_items).permit(:quantity, :product_id)
-    end
+    # def cart_items_params
+    #     debugger
+    #     params.require(:cart_item).permit(:product_id)
+    # end
 
     def cart_variable
         @cart_item = CartItem.find(params[:id])
