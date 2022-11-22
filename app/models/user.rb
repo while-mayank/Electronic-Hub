@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_one :cart, dependent: :destroy
 
-   after_create :initiate_profile, :grab_image
+   after_create :initiate_profile, :grab_image, :initiate_cart
   # Include default devise modules. Others available are:
   # :timeoutable, :trackable 
   attr_accessor :login
@@ -19,8 +19,11 @@ class User < ApplicationRecord
     self.create_profile(name: $name || "")
   end
 
+  def initiate_cart
+    self.create_cart
+  end
+
   def grab_image
-    debugger
     if $image.present?
       downloaded_image = URI.parse($image).open
       self.profile.avatar.attach(io: downloaded_image, filename: "#{self.profile.id.to_s + self.profile.name}.jpg")

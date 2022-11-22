@@ -1,0 +1,1 @@
+$("#QuantityStatus<%=params["id"]%>").html("<%= escape_javascript render('quantity', no: CartItem.find(params["id"]).quantity)%>");

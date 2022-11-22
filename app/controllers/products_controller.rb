@@ -2,6 +2,9 @@ class ProductsController < ApplicationController
 
   before_action :product_variable, only: %i[show edit update destroy] 
   
+  def all_cart_items
+  end
+  
   def index
     @products = Product.all
   end

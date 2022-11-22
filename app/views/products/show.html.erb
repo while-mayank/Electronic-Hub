@@ -21,3 +21,23 @@
     <%= link_to "Edit Product", edit_product_path(@product)%>
     <%= link_to "Delete Product", product_path(@product), method: :delete%>
 <% end %>
+
+
+<%=  link_to "Add to Cart", cart_items_path, class: "btn btn-primary", data: {bs_target: "#CartItems", bs_toggle: "modal", remote: true} %>
+
+
+<div class="modal fade" id="CartItems" tabindex="-1" aria-labelledby="CartItemsLabel" aria-hidden="true">
+  <div class="modal-dialog" style="
+    margin-right: 0px;
+    margin-top: 10px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="CartItemsLabel">Cart Items</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="CartItemsModal">
+
+      </div>
+    </div>
+  </div>
+</div>

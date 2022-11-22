@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   
   resources :profiles
   resources :products
+  resources :cart_items do 
+    member do
+      get 'increment'
+      get 'decrement'
+    end
+  end
 end
