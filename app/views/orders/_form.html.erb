@@ -3,10 +3,11 @@
 <%= f.label :address %>
 <div class="hstack gap-3">
     <% current_user.addresses.each do |a| %>
-        <%= f.radio_button :address_id, a.id %></h5>
+        <%= f.radio_button :address_id, a.id.to_i %></h5>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title"><%= a.full_name %>
+                
                 <h6 class="card-subtitle mb-2 text-muted"><%= a.mobile_number %></h6>
                 <p class="card-text"><%= a.pincode %>, <%= a.house_no %>, <%= a.area %>, <%= a.landmark %>, <%= a.city %>, <%= a.state %>, <%= a.address_type %></p>
                 <%= link_to "Edit Address", edit_address_path(a), class: "btn btn-primary", data: {bs_target: "#addressModal", bs_toggle: "modal", remote:true}%>

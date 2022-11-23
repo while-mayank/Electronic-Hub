@@ -15,6 +15,11 @@
       <li class="nav-item" style=" margin-right: 5px; margin-left: 5px;">
         <%= link_to "View Profile",  profile_path(current_user.profile.id), class: "nav-link" %>
       </li>
+      <% if current_user.orders.present? %>
+        <li class="nav-item" style=" margin-right: 5px; margin-left: 5px;">
+          <%= link_to "View Orders",  orders_path(), class: "nav-link" %>
+        </li>
+      <% end %>
       <li class="nav-item"  style=" margin-right: 5px; margin-left: 1400px;">
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-outline-success me-2"  %>
       </li>
@@ -37,7 +42,7 @@
 
 
 <ul class="nav nav-tabs" style="background-color: #EEE5E9;">
-  <li class="nav-item dropdown">
+  <%# <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">Action</a></li>
@@ -46,20 +51,11 @@
       <li><hr class="dropdown-divider"></li>
       <li><a class="dropdown-item" href="#">Separated link</a></li>
     </ul>
-  </li>
+  </li> %>
   <li class="nav-item">
     <%= link_to "View Products",  products_path, class: "nav-link" %>
   </li>
-    <li class="nav-item">
-    <%= link_to "Sell Products",  new_product_path, class: "nav-link" %>
-  </li>
-    <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-    <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
   <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
+    <%= link_to "Sell Products",  new_product_path, class: "nav-link" %>
   </li>
 </ul>
