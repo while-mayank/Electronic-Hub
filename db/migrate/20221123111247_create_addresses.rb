@@ -11,6 +11,7 @@ class CreateAddresses < ActiveRecord::Migration[6.1]
       t.string :city
       t.string :state
       t.string :address_type
+      t.string :order_status
 
       t.timestamps
     end

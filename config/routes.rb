@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   
   resources :profiles
   resources :products
+  resources :orders
+  resources :addresses
+  
   resources :cart_items do 
     member do
       get 'increment'
@@ -12,4 +15,11 @@ Rails.application.routes.draw do
       post 'register'
     end
   end
+
+  resources :order_items do 
+    member do
+      post 'generate'
+    end
+  end
+
 end

@@ -11,6 +11,7 @@ one:
   city: MyString
   state: MyString
   address_type: MyString
+  order_status: MyString
 
 two:
   user: two
@@ -23,3 +24,4 @@ two:
   city: MyString
   state: MyString
   address_type: MyString
+  order_status: MyString

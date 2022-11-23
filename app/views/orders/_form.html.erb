@@ -1,0 +1,42 @@
+<%= form_for @order do |f|%>
+
+<%= f.label :address %>
+<div class="hstack gap-3">
+    <% current_user.addresses.each do |a| %>
+        <%= f.radio_button :address_id, a.id %></h5>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><%= a.full_name %>
+                <h6 class="card-subtitle mb-2 text-muted"><%= a.mobile_number %></h6>
+                <p class="card-text"><%= a.pincode %>, <%= a.house_no %>, <%= a.area %>, <%= a.landmark %>, <%= a.city %>, <%= a.state %>, <%= a.address_type %></p>
+                <%= link_to "Edit Address", edit_address_path(a), class: "btn btn-primary", data: {bs_target: "#addressModal", bs_toggle: "modal", remote:true}%>
+            </div>
+        </div>
+    <% end %>
+    <%= link_to "Add Address", new_address_path, class: "btn btn-primary", data: {bs_target: "#addressModal", bs_toggle: "modal", remote:true}%>
+</div>
+
+<hr>
+<%= f.label :payment_method%>
+<hr>
+<%= f.label :price %><br>
+<%= f.text_field :price, value: calculate %><br>
+<%= calculate%>
+
+<%= f.submit "Place Order", class: "btn btn-warning" %>
+<% end %>
+
+<!-- Modal -->
+<div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="addressModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addressModalLabel">Modal title</h1>
+        <button type="button" class="btn-close close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="AddressModalForm">
+      
+      </div>
+    </div>
+  </div>
+</div>
