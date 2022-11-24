@@ -14,9 +14,8 @@ class OrdersController < ApplicationController
     end
 
     def create
-        @order = current_user.orders.create(order_params)
-        if @order.save
-            debugger
+        @order = current_user.orders.new(order_params)
+        if @order.save!
             create_order_items(@order)
             destroy_cart_items
             redirect_to @order
