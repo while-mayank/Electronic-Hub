@@ -4,6 +4,8 @@ class CartItemsController < ApplicationController
 
     def index
         @cart_items = CartItem.all
+        # product = Product.find(params[:id])
+        # debugger
     end
 
     def new
