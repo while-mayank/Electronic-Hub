@@ -2,10 +2,8 @@
 
 one:
   user: one
-  payment_detail: one
   amount: 
 
 two:
   user: two
-  payment_detail: two
   amount: 

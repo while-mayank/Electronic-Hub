@@ -1,10 +1,12 @@
 class User < ApplicationRecord
   require 'open-uri'
+
   has_one :profile, dependent: :destroy
   has_many :products, dependent: :destroy
   has_one :cart, dependent: :destroy
   has_many :addresses
   has_many :orders
+  has_one :voucher
 
    after_create :initiate_profile, :grab_image, :initiate_cart
   # Include default devise modules. Others available are:
@@ -23,6 +25,10 @@ class User < ApplicationRecord
 
   def initiate_cart
     self.create_cart
+  end
+
+  def initiate_voucher
+    self.create_voucher
   end
 
   def grab_image

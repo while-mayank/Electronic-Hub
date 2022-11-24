@@ -15,7 +15,17 @@ module PostOrder
         end
 
         def calculate(quantity, unit_price)
-            price = quantity * unit_price
+            @price = quantity * unit_price
+        end
+
+        def deduction(order)
+            @voucher = current_user.voucher
+            @price =  order.price
+            @voucher.update(amount: @voucher.amount - @price)
+        end
+
+        def payment_info(order)
+            order.create_payment_detail(voucher: @voucher)
         end
 
     end

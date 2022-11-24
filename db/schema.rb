@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_24_081158) do
+ActiveRecord::Schema.define(version: 2022_11_24_115839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,9 +102,11 @@ ActiveRecord::Schema.define(version: 2022_11_24_081158) do
 
   create_table "payment_details", force: :cascade do |t|
     t.bigint "order_id", null: false
+    t.bigint "voucher_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_payment_details_on_order_id"
+    t.index ["voucher_id"], name: "index_payment_details_on_voucher_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -154,11 +156,9 @@ ActiveRecord::Schema.define(version: 2022_11_24_081158) do
 
   create_table "vouchers", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "payment_detail_id", null: false
-    t.bigint "amount"
+    t.bigint "amount", default: 100000
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["payment_detail_id"], name: "index_vouchers_on_payment_detail_id"
     t.index ["user_id"], name: "index_vouchers_on_user_id"
   end
 
@@ -173,8 +173,8 @@ ActiveRecord::Schema.define(version: 2022_11_24_081158) do
   add_foreign_key "orders", "addresses"
   add_foreign_key "orders", "users"
   add_foreign_key "payment_details", "orders"
+  add_foreign_key "payment_details", "vouchers"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
-  add_foreign_key "vouchers", "payment_details"
   add_foreign_key "vouchers", "users"
 end

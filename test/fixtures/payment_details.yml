@@ -2,6 +2,8 @@
 
 one:
   order: one
+  voucher: one
 
 two:
   order: two
+  voucher: two

@@ -8,5 +8,6 @@ class CartsController < ApplicationController
          @cart = Cart.find(params[:id])
          if @cart.destroy
             redirect_to products_url
+         end
     end
 end

@@ -1,4 +1,4 @@
 class Voucher < ApplicationRecord
   belongs_to :user
-  belongs_to :payment_detail
+  has_many :payment_details
 end

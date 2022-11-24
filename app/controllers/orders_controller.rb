@@ -18,12 +18,14 @@ class OrdersController < ApplicationController
         if @order.save!
             create_order_items(@order)
             destroy_cart_items
+            deduction(@order)
+            payment_info(@order)
             redirect_to @order
         end
     end
 
     private
     def order_params
-        params.require(:order).permit(:status, :address_id, :price)
+        params.require(:order).permit(:status, :address_id, :price, :payment_method)
     end
 end

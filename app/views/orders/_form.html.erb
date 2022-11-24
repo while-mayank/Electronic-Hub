@@ -7,7 +7,6 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title"><%= a.full_name %>
-                
                 <h6 class="card-subtitle mb-2 text-muted"><%= a.mobile_number %></h6>
                 <p class="card-text"><%= a.pincode %>, <%= a.house_no %>, <%= a.area %>, <%= a.landmark %>, <%= a.city %>, <%= a.state %>, <%= a.address_type %></p>
                 <%= link_to "Edit Address", edit_address_path(a), class: "btn btn-primary", data: {bs_target: "#addressModal", bs_toggle: "modal", remote:true}%>
@@ -19,6 +18,14 @@
 
 <hr>
 <%= f.label :payment_method%>
+<%= f.radio_button :payment_method, "voucher" %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Your Voucher</h5>
+    <p class="card-text"><%= current_user.voucher.amount %></p>
+    <a href="#" class="card-link">View Voucher</a>
+  </div>
+</div>
 <hr>
 <%= f.label :price %><br>
 <%= f.text_field :price, value: calculate %><br>
@@ -32,7 +39,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="addressModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="addressModalLabel">Create Address</h1>
         <button type="button" class="btn-close close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div id="AddressModalForm">
