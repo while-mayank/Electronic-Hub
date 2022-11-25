@@ -6,7 +6,12 @@ class ProductsController < ApplicationController
   end
   
   def index
-    @products = Product.all
+    category = params[:category]
+    if category.present?
+      @products = Product.where(category: category )
+    else
+      @products = Product.all
+    end
   end
   
   def show

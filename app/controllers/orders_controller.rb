@@ -20,6 +20,8 @@ class OrdersController < ApplicationController
             destroy_cart_items
             deduction(@order)
             payment_info(@order)
+            OrderMailer.send_mail(@order, current_user).deliver
+            @users = User.all
             redirect_to @order
         end
     end

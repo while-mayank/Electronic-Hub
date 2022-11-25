@@ -4,11 +4,13 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :products, dependent: :destroy
   has_one :cart, dependent: :destroy
-  has_many :addresses
-  has_many :orders
-  has_one :voucher
+  has_many :addresses, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  has_one :voucher, dependent: :destroy
 
-   after_create :initiate_profile, :grab_image, :initiate_cart
+  validates_presence_of :mobile, unless: -> { from_omniauth? }
+
+   after_create :initiate_profile, :grab_image, :initiate_cart, :initiate_voucher
   # Include default devise modules. Others available are:
   # :timeoutable, :trackable 
   attr_accessor :login
@@ -21,6 +23,7 @@ class User < ApplicationRecord
   
   def initiate_profile
     self.create_profile(name: $name || "")
+    $name = nil
   end
 
   def initiate_cart
@@ -36,6 +39,7 @@ class User < ApplicationRecord
       downloaded_image = URI.parse($image).open
       self.profile.avatar.attach(io: downloaded_image, filename: "#{self.profile.id.to_s + self.profile.name}.jpg")
     end
+    $image = nil
   end
 
     def self.find_for_database_authentication(warden_conditions)
@@ -68,4 +72,11 @@ class User < ApplicationRecord
       user.save
       user
     end
+
+    private
+
+    def from_omniauth?
+      provider && uid
+    end
+
 end

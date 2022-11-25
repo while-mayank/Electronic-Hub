@@ -1,6 +1,7 @@
 <div class="modal-body">
     <div id="all-cart-items">
     <% cart_items.each do |ci|%>
+        <hr>
         <%= image_tag ci.product.images.first, style: "width: 100px;height: 100px;" %>
         <%= ci.product.model %><br>
         <div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -11,7 +12,6 @@
         Quantity: <%= ci.quantity %><br>
         Price: <%= ci.product.price * ci.quantity%><br>
         </div>
-        <hr>
     <% end %>
     </div>
 </div>

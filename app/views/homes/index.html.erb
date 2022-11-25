@@ -1,1 +1,46 @@
-
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+        <div class="card">
+        <%= link_to(products_path(category: :Home))  do %>
+            <%  if filter_home.first.images.first.present? %>
+                <%= image_tag filter_home.first.images.first, class: "img-fluid img-thumbnail card-img-overlay" %>
+                <div class="card-img-overlay">
+                    <p class="card-text"><small>Home</small></p>
+                </div>
+            <% else %>
+            <p>Please Insert Product and Images.</p>
+            <% end %>
+        <% end %>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <%= link_to(products_path(category: :Mobile))  do %>
+                <%  if filter_mobile.first.images.first.present? %>
+                <%= image_tag filter_mobile.first.images.first, class: "img-fluid img-thumbnail card-img-overlay" %>
+                <div class="card-img-overlay">
+                    <p class="card-text"><small>Mobile</small></p>
+                </div>
+                <% else %>
+                <p>Please Insert Product and Images.</p>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <%= link_to(products_path(category: :Kitchen))  do %>
+            <%  if filter_mobile.first.images.first.present? %>
+                    <%= image_tag filter_kitchen.second.images.first, class: "img-fluid img-thumbnail " %>
+                <div class="card-img-overlay">
+                    <p class="card-text"><small>Kitchen</small></p>
+                </div>
+            <% else %>
+            <p>Please Insert Product and Images.</p>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
+  </div>
+</div>
