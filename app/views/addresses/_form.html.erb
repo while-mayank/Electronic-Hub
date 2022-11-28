@@ -20,7 +20,7 @@
         <%= a.select(:address_type, ['Home', "Office"], {}, { :class => 'my_style_class' }) %>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary close-modal" data-bs-dismiss="modal">Close</button>
-        <%= a.submit "Create Address", class:"btn btn-primary"%>
+        <button type="button" id="close-form" class="btn btn-secondary close-modal" data-bs-dismiss="modal">Close</button>
+        <%= a.submit "Submit", class:"btn btn-primary"%>
     </div>
 <% end %>

@@ -3,9 +3,7 @@ class CartItemsController < ApplicationController
     before_action :cart_variable, only: %i[edit update destroy increment decrement]
 
     def index
-        @cart_items = CartItem.all
-        # product = Product.find(params[:id])
-        # debugger
+        @cart_items = current_user.cart.cart_items
     end
 
     def new
@@ -69,11 +67,6 @@ class CartItemsController < ApplicationController
     end
 
     private
-
-    # def cart_items_params
-    #     debugger
-    #     params.require(:cart_item).permit(:product_id)
-    # end
 
     def cart_variable
         @cart_item = CartItem.find(params[:id])

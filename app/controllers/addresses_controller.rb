@@ -1,5 +1,6 @@
 class AddressesController < ApplicationController
     before_action :authenticate_user!
+    before_action :set_variable, only: %i[edit destroy update]
     def new
         @address = Address.new
     end
@@ -17,9 +18,19 @@ class AddressesController < ApplicationController
     end
 
     def update
+        if @address.update(address_params)
+            respond_to do |format|
+                format.js
+            end
+        end
     end
 
     def destroy
+        if @address.destroy
+            respond_to do |format|
+                format.js
+            end
+        end
     end
 
     private
@@ -29,7 +40,7 @@ class AddressesController < ApplicationController
     end
 
     def set_variable
-        @address = Address.find(param[:id])
+        @address = Address.find(params[:id])
     end
 
 end

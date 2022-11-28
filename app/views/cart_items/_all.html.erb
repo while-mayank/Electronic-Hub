@@ -2,7 +2,9 @@
     <div id="all-cart-items">
     <% cart_items.each do |ci|%>
         <hr>
+        <% if ci.product.images.present? %>
         <%= image_tag ci.product.images.first, style: "width: 100px;height: 100px;" %>
+        <% end %>
         <%= ci.product.model %><br>
         <div class="btn-group" role="group" aria-label="Basic outlined example">
         <%= link_to "-", decrement_cart_item_path(ci), class:"btn btn-outline-primary", remote: true%>

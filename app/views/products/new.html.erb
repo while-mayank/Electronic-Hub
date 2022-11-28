@@ -26,38 +26,9 @@
 <div class="mb-3">
   <%= f.label :category, class: "form-label" %>
 </div>
-
-<select id="independent" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
-  <option value="A"> Kitchen </option>
-  <option value="B"> Home </option>
-  <option value="C"> Mobile </option>
-</select>
-
-<div class="mb-3">
-  <%= f.label :sub_category, class: "form-label", id: "exampleFormControlInput1" %>
+<div>
+  <%= f.select :category, ["Kitchen", "Home", "Mobile"], id: "independent", class: "form-select form-select-lg mb-3" %>
 </div>
- <select id="dependent" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
-  <option value="A">Electric Chimney</option>
-  <option value="A">Electric Coffe Grinder</option>
-  <option value="A">Mixer</option>
-  <option value="A">Refrigrator</option>
-  <option value="A">Microwave</option>
-  <option value="A">Coffe Grinder</option>
-  <option value="A">Electric Kettle</option>
-  <option value="B">TV</option>
-  <option value="B">AC</option>
-  <option value="B">Vacume</option>
-  <option value="B">Geyser</option>
-  <option value="B">Cooler</option>
-  <option value="B">Water Purifier</option>
-  <option value="C">Adapter</option>
-  <option value="C">Cabel</option>
-  <option value="C">Charger</option>
-  <option value="C">OTG</option>
-  <option value="C">Holder</option>
-  <option value="C">Tri Pod</option>
-  <option value="C">Power bank</option>
-</select>
 
 <div class="mb-3">
   <%= f.label :price, class: "form-label"%>

@@ -17,9 +17,12 @@
       </li>
       <% if current_user.orders.present? %>
         <li class="nav-item" style=" margin-right: 5px; margin-left: 5px;">
-          <%= link_to "View Orders",  orders_path(), class: "nav-link" %>
+          <%= link_to "View Orders",  orders_path, class: "nav-link" %>
         </li>
       <% end %>
+        <li class="nav-item" style=" margin-right: 5px; margin-left: 5px;">
+          <%= link_to "View Address",  addresses_path, class: "nav-link" %>
+        </li>
       <li class="nav-item"  style=" margin-right: 5px; margin-left: 1400px;">
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-outline-success me-2"  %>
       </li>
@@ -60,9 +63,7 @@
   </li>
   <li class="nav-item">
     <% if user_signed_in? %>
-      <%=  link_to "Add to Cart", cart_items_path, class: "nav-link", data: {bs_target: "#CartItems", bs_toggle: "modal", remote: true}%>
-    <% else %>
-      <%=  link_to "Add to Cart", user_session_path, class: "nav-link" %>
+      <%=  link_to "Cart", cart_items_path, class: "nav-link", data: {bs_target: "#CartItems", bs_toggle: "modal", remote: true}%>
     <% end %>
   </li>
 </ul>
