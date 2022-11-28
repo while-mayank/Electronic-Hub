@@ -1,6 +1,6 @@
 require "test_helper"
 
-class VoucherControllerTest < ActionDispatch::IntegrationTest
+class VouchersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
