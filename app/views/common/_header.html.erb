@@ -58,4 +58,11 @@
   <li class="nav-item">
     <%= link_to "Sell Products",  new_product_path, class: "nav-link" %>
   </li>
+  <li class="nav-item">
+    <% if user_signed_in? %>
+      <%=  link_to "Add to Cart", cart_items_path, class: "nav-link", data: {bs_target: "#CartItems", bs_toggle: "modal", remote: true}%>
+    <% else %>
+      <%=  link_to "Add to Cart", user_session_path, class: "nav-link" %>
+    <% end %>
+  </li>
 </ul>

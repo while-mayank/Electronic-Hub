@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 
+  before_action :authenticate_user!, except: %i[index show]
   before_action :product_variable, only: %i[show edit update destroy] 
   
   def all_cart_items
