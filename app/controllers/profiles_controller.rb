@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :profile_variable, only: %i[show edit update] 
 
   def show

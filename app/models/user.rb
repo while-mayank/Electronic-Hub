@@ -15,7 +15,7 @@ class User < ApplicationRecord
   # :timeoutable, :trackable 
   attr_accessor :login
 
-  devise :database_authenticatable, :validatable, :confirmable,  :lockable, :registerable, :recoverable, :rememberable, :omniauthable ,omniauth_providers: [:facebook, :google_oauth2, :linkedin], authentication_keys: [:login]
+  devise :database_authenticatable, :validatable, :confirmable,  :lockable, :registerable, :recoverable, :rememberable, :omniauthable ,omniauth_providers: [:facebook, :google_oauth2], authentication_keys: [:login]
 
   def login
      @login || self.email || self.mobile
