@@ -14,7 +14,7 @@ User.first.products.create([
 	{
 		brand: "Piegon",
 		model: "Coffe Maker",
-		category: "Kitche",
+		category: "Kitchen",
 		price: 11000
 	}
 

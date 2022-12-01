@@ -46,7 +46,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    debugger
     params.require(:product).permit(:brand, :model, :price, :category, :sub_category, images: [])
   end
 
