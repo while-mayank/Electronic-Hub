@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if Product.find(params[:id]).update(product_params)
+    if @product.update(product_params)
       redirect_to product_url(@product)
     end
   end
@@ -46,6 +46,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
+    debugger
     params.require(:product).permit(:brand, :model, :price, :category, :sub_category, images: [])
   end
 
