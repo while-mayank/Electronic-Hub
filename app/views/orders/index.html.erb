@@ -3,6 +3,16 @@
   <div class="card-header">
     <div style="display:inline-block; float: left;">
         Order <%= order.id%>
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Action
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Invoice(.csv)</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Invoice(.pdf)</a></li>
+          </ul>
+        </div>
     </div>
     <div style="display:inline-block; float: right;">
         Total: <%= order.price%>

@@ -26,6 +26,10 @@ class OrdersController < ApplicationController
         end
     end
 
+    def generate_invoice
+    
+    end
+
     private
     def order_params
         params.require(:order).permit(:status, :address_id, :price, :payment_method)
