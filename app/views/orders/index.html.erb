@@ -5,12 +5,13 @@
         Order <%= order.id%>
         <div class="btn-group">
           <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Action
+            Invoice
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Invoice(.csv)</a></li>
+            <%= link_to "Invoice CSV", generate_invoice_orders_path(format: :csv), class:"dropdown-item", download: ["Invoice", order.id].join(" ") %>
+            <li><a class="dropdown-item" href="#">CSV</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Invoice(.pdf)</a></li>
+            <li><a class="dropdown-item" href="#">PDF</a></li>
           </ul>
         </div>
     </div>

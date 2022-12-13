@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   get "/voucher", to: "vouchers#show", as: "voucher"
   resources :profiles
   resources :products
-  resources :orders
+  resources :orders do
+    collection do
+      get 'generate_invoice'
+    end
+  end
+
   resources :addresses
   
   resources :cart_items do 
