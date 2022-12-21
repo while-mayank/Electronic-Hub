@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
     before_action :authenticate_user!
     include PostOrder
-    require 'csv'
 
     def index
         @orders = current_user.orders
@@ -29,7 +28,7 @@ class OrdersController < ApplicationController
     end
 
     def generate_invoice
-    @order = Order.find(1)
+     @order = Order.find(1)
     end
 
     private

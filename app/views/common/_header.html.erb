@@ -28,7 +28,7 @@
         <li class="nav-item">
           <%= link_to "Voucher",  voucher_path, class: "nav-link" %>
         </li>
-      <li class="nav-item"  style=" margin-right: 5px; margin-left: 43rem;">
+      <li class="nav-item"  style=" margin-right: 5px; margin-left: 38rem;">
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-outline-success me-2"  %>
       </li>
 <% else %>
@@ -69,6 +69,11 @@
   <li class="nav-item">
     <% if user_signed_in? %>
       <%=  link_to "Cart", cart_items_path, class: "nav-link", data: {bs_target: "#CartItems", bs_toggle: "modal", remote: true}%>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <% if user_signed_in? %>
+      <%=  link_to "Your Orders", csv_products_path, class: "nav-link"%>
     <% end %>
   </li>
 </ul>

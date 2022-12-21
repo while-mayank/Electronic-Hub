@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   
   get "/voucher", to: "vouchers#show", as: "voucher"
   resources :profiles
-  resources :products
+  resources :products do
+    collection do
+      get 'csv', defaults: {format: :csv}
+    end
+  end
+
   resources :orders do
     collection do
       get 'generate_invoice'

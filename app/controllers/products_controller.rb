@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  require 'csv'
 
   before_action :authenticate_user!, except: %i[index show]
   before_action :product_variable, only: %i[show edit update destroy] 
@@ -43,6 +44,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def csv
+      @product = current_user.products
+      respond_to do |format|
+          format.csv do
+            send_data Product.to_csv(@product), filename: current_user.email, content_type: "text/csv"
+          end
+      end
+  end
   private
 
   def product_params
