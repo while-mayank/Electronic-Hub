@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   require 'csv'
-
+  include View
   before_action :authenticate_user!, except: %i[index show]
   before_action :product_variable, only: %i[show edit update destroy] 
   
@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
   end
   
   def show
+    create_view(@product, "product show page")
   end
 
   def new

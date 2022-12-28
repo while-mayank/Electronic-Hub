@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_one :voucher, dependent: :destroy
+  has_many :view_counts, dependent: :destroy
 
   validates_presence_of :mobile, unless: -> { from_omniauth? }
 

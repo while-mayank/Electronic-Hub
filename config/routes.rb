@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get 'increment'
       get 'decrement'
       post 'register'
+      post 'create_view'
     end
   end
 
