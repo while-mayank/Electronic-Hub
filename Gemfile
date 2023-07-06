@@ -11,7 +11,7 @@ gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 3.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -34,6 +34,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capistrano', '~> 3.11.0',        require: false
+  gem 'capistrano-rvm', '~> 0.1.2',     require: false
+  gem 'capistrano-rails', '~> 1.4.0',   require: false
+  gem 'capistrano-bundler', '~> 1.3.0', require: false
+  gem 'capistrano3-puma', '~> 3.1.1',   require: false
 end
 
 group :development do

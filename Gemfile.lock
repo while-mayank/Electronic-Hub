@@ -62,12 +62,32 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    airbrussh (1.4.1)
+      sshkit (>= 1.6.1, != 1.7.0)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
+    capistrano (3.11.2)
+      airbrussh (>= 1.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.3.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-rails (1.4.0)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+    capistrano3-puma (3.1.1)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (~> 3.4)
     capybara (3.38.0)
       addressable
       matrix
@@ -134,8 +154,11 @@ GEM
       net-protocol
     net-protocol (0.2.1)
       timeout
+    net-scp (4.0.0)
+      net-ssh (>= 2.6.5, < 8.0.0)
     net-smtp (0.3.3)
       net-protocol
+    net-ssh (7.1.0)
     nio4r (2.5.8)
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
@@ -168,8 +191,7 @@ GEM
     orm_adapter (0.5.0)
     pg (1.4.4)
     public_suffix (5.0.1)
-    puma (5.6.5)
-      nio4r (~> 2.0)
+    puma (3.12.6)
     racc (1.6.1)
     rack (2.2.4)
     rack-mini-profiler (2.3.4)
@@ -246,6 +268,9 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.5.4-x86_64-linux)
+    sshkit (1.21.5)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.1)
@@ -285,6 +310,11 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
+  capistrano (~> 3.11.0)
+  capistrano-bundler (~> 1.3.0)
+  capistrano-rails (~> 1.4.0)
+  capistrano-rvm (~> 0.1.2)
+  capistrano3-puma (~> 3.1.1)
   capybara (>= 3.26)
   devise (~> 4.8)
   figaro
@@ -301,7 +331,7 @@ DEPENDENCIES
   omniauth-linkedin-oauth2 (~> 1.0)
   omniauth-rails_csrf_protection
   pg
-  puma (~> 5.0)
+  puma (~> 3.4)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.6, >= 6.1.6.1)
   sass-rails (>= 6)
