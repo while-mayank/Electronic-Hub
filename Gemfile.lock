@@ -106,7 +106,7 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.12.0)
-    faraday (2.7.9)
+    faraday (2.7.10)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
@@ -349,7 +349,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.0.0p0
 
 BUNDLED WITH
-   2.3.26
+   2.2.3
