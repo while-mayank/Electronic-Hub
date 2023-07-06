@@ -33,8 +33,10 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 
 ## Linked Files & Directories (Default None):
 # set :linked_files, %w{config/database.yml}
-set :linked_dirs,  %w{bin public/assets log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
-set :linked_files, %w{ config/database.yml config/secrets.yml config/application.yml}
+# set :linked_dirs,  %w{bin public/assets log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+# set :linked_files, %w{ config/database.yml config/secrets.yml config/application.yml}
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/application.yml')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system' )
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
