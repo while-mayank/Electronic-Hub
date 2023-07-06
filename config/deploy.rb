@@ -1,7 +1,7 @@
 # Change these
 server '43.205.94.67', port: 22, roles: [:web, :app, :db], primary: true
 
-set :mailto:repo_url,'git@github.com:while-mayank/Electronic-Hub.git'
+set :repo_url,        'git@github.com:while-mayank/Electronic-Hub.git'
 set :application,     'Electronic-Hub'
 set :user,            'ubuntu'
 set :branch,          'main'
