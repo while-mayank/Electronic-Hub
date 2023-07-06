@@ -31,7 +31,6 @@ require 'capistrano/bundler'
 require 'capistrano/rvm'
 require 'capistrano/puma'
 require 'capistrano/nvm'
-install_plugin Capistrano::Nvm
 install_plugin Capistrano::Puma, load_hooks: false  # Default puma tasks without hooks
 install_plugin Capistrano::Puma::Monit, load_hooks: false  # Monit tasks without hooks
 # require "capistrano/rails/migrations"
