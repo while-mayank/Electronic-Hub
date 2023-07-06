@@ -39,5 +39,5 @@ install_plugin Capistrano::Puma::Monit, load_hooks: false  # Monit tasks without
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 
 set :default_env, {
-  "PATH" => "/home/ubuntu/.nvm"
+    "PATH" => "/usr/bin/bash/home/atm/.nvm/versions/node/v20.3.1/bin/node/bin:$PATH"
 }
