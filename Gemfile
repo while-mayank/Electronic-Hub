@@ -39,6 +39,7 @@ group :development, :test do
   gem 'capistrano-rails',     require: false
   gem 'capistrano-bundler',   require: false
   gem 'capistrano3-puma',     require: false
+  gem 'net-scp'
 end
 
 group :development do

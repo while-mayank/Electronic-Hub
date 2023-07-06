@@ -327,6 +327,7 @@ DEPENDENCIES
   listen (~> 3.3)
   net-imap
   net-pop
+  net-scp
   net-smtp
   omniauth
   omniauth-facebook (~> 9.0)
