@@ -1,5 +1,5 @@
 # Change these
-server '43.205.94.67', port: 22, roles: [:web, :app, :db], primary: true
+server '65.1.232.136', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:while-mayank/Electronic-Hub.git'
 set :application,     'Electronic-Hub'
