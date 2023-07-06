@@ -37,3 +37,7 @@ install_plugin Capistrano::Puma::Monit, load_hooks: false  # Monit tasks without
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
+
+set :default_env, {
+  "PATH" => "/home/ubuntu/.nvm"
+}
